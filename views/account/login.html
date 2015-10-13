@@ -1,0 +1,31 @@
+<ion-view view-title="Login" hide-back-button="true">
+  <ion-content has-header="true" padding="true">
+    <form name="vm.loginForm" novalidate>
+      <div class="list">
+        <label class="item item-input">
+          <input name="useremail" type="email" ng-model="vm.user.email" placeholder="email" required>
+        </label>
+        <div ng-if="vm.loginForm.$submitted !== undefined && vm.loginForm.$submitted === true && vm.loginForm.useremail.$invalid">
+          <div class="item item-text-wrap assertive">
+            <span ng-show="vm.loginForm.useremail.$error.required">Oops! Please enter an email address</span>
+            <span ng-show="vm.loginForm.useremail.$error.email">Oops! Please enter a valid email address</span>
+          </div>
+        </div>
+        <label class="item item-input">
+          <input name="userpassword" type="password" ng-model="vm.user.password" placeholder="password" required>
+        </label>
+        <div ng-if="vm.loginForm.$submitted !== undefined && vm.loginForm.$submitted === true && vm.loginForm.useremail.$invalid">
+          <div class="item item-text-wrap assertive">
+            <span ng-show="vm.loginForm.userpassword.$error.required">Oops! Please enter a password</span>
+          </div>
+        </div>
+        <button type="submit" class="button button-block button-positive" ng-click="vm.login()">Login</button>
+      </div>
+      <div class="padding-top">          
+          <p class="text-center padding-top">
+            <a href="#/forgot" class="button button-clear button-positive">Forgot password</a>
+            <a href="#/register" class="button button-clear button-positive">Register</a>
+        </div>
+    </form>        
+  </ion-content>
+</ion-view>
